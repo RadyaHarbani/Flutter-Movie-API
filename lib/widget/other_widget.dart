@@ -29,10 +29,6 @@ class AppbarIcons extends StatelessWidget {
             ),
             shape: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(25)),
-              borderSide: BorderSide(
-                color: Colors.black,
-                width: 2,
-              ),
             ),
             padding: EdgeInsets.all(5),
             duration: Duration(seconds: 2),
@@ -82,14 +78,6 @@ class ContentTitle extends StatelessWidget {
           ),
           Row(
             children: [
-              // Text(
-              //   "Lainnya",
-              //   style: TextStyle(
-              //     fontSize: 12,
-              //     fontWeight: FontWeight.bold,
-              //     color: Colors.blue,
-              //   ),
-              // ),
               TextButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -107,10 +95,6 @@ class ContentTitle extends StatelessWidget {
                       ),
                       shape: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(25)),
-                        borderSide: BorderSide(
-                          color: Colors.black,
-                          width: 2,
-                        ),
                       ),
                       padding: EdgeInsets.all(5),
                       duration: Duration(seconds: 2),
@@ -119,11 +103,11 @@ class ContentTitle extends StatelessWidget {
                 },
                 child: Text("Lainnya"),
               ),
-              SizedBox(
-                width: 3,
+              Padding(
+                padding: const EdgeInsets.only(top: 3),
+                child: Icon(Icons.arrow_forward_ios_rounded,
+                    size: 12, color: Colors.blue),
               ),
-              Icon(Icons.arrow_forward_ios_rounded,
-                  size: 12, color: Colors.blue),
             ],
           ),
         ],

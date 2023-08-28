@@ -84,15 +84,16 @@ class DetailPage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 5),
-                              Text(
-                                movie.releaseDate.toString(),
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.grey,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5, bottom: 5),
+                                child: Text(
+                                  movie.releaseDate.toString(),
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.grey,
+                                  ),
                                 ),
                               ),
-                              SizedBox(height: 5),
                               Row(
                                 children: [
                                   Icon(
@@ -122,12 +123,14 @@ class DetailPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 5),
-                              Text(
-                                movie.voteAverage.toString(),
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: Text(
+                                  movie.voteAverage.toString(),
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
                                 ),
                               ),
                             ],
@@ -154,9 +157,8 @@ class DetailPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                padding: const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -165,12 +167,14 @@ class DetailPage extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      movie.overview.toString(),
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.grey[600],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(
+                        movie.overview.toString(),
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.grey[600],
+                        ),
                       ),
                     ),
                   ],

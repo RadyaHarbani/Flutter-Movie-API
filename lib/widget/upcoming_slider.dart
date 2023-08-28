@@ -80,12 +80,14 @@ class UpcomingSlider extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 5),
-                          Text(
-                            snapshot.data![index].releaseDate,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Text(
+                              snapshot.data![index].releaseDate,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 10,
+                              ),
                             ),
                           ),
                         ],

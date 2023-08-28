@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:movie_app/API/fetch_api.dart';
-import 'package:movie_app/widget/widget.dart';
+import 'package:movie_app/widget/other_widget.dart';
 import '../widget/upcoming_slider.dart';
 import '../widget/top_rated_slider.dart';
 import '../widget/trending_slider.dart';
@@ -30,18 +30,22 @@ List<Widget> widgets = [
             children: [
               Row(
                 children: [
-                  SizedBox(width: 20),
-                  Icon(
-                    Icons.location_on_sharp,
-                    color: Colors.black54,
-                    size: 18,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Batam, Indonesia',
-                    style: TextStyle(
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Icon(
+                      Icons.location_on_sharp,
                       color: Colors.black54,
-                      fontSize: 14,
+                      size: 18,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      'Batam, Indonesia',
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],
@@ -53,12 +57,12 @@ List<Widget> widgets = [
                     color: Colors.black,
                     size: 18,
                   ),
-                  SizedBox(width: 20),
                 ],
               ),
             ],
           ),
         ),
+        // Batas Batam, Indonesia
         Container(
           width: double.infinity,
           height: 123,
@@ -67,45 +71,55 @@ List<Widget> widgets = [
             fit: BoxFit.cover,
           ),
         ),
-        SizedBox(height: 20),
-        ContentTitle(
-            title: "Film Trending",
-            subtitle: "Berikut Film - Film Yang Sedang Trending"),
-        SizedBox(height: 23),
-        SizedBox(
-          child: FutureBuilder(
-            future: trendingMovies,
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(snapshot.error.toString()),
-                );
-              } else if (snapshot.hasData) {
-                return TrendingSlider(
-                  snapshot: snapshot,
-                );
-              } else {
-                return Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
-          ),
+        // Batas Iklan
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: ContentTitle(
+              title: "Film Trending",
+              subtitle: "Berikut Film - Film Yang Sedang Trending"),
         ),
-        SizedBox(height: 15),
-        Center(
-          child: Text(
-            "Sedang Tayang",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+        // Batas Film Trending Text
+        Padding(
+          padding: const EdgeInsets.only(top: 23),
+          child: SizedBox(
+            child: FutureBuilder(
+              future: trendingMovies,
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(snapshot.error.toString()),
+                  );
+                } else if (snapshot.hasData) {
+                  return TrendingSlider(
+                    snapshot: snapshot,
+                  );
+                } else {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              },
             ),
           ),
         ),
-        SizedBox(height: 15),
+        // Batas Film Trending
+        Padding(
+          padding: const EdgeInsets.only(top: 15, bottom: 15),
+          child: Center(
+            child: Text(
+              "Sedang Tayang",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        // Batas Sedang Tayang Text
         Divider(
           color: Colors.grey[400],
         ),
+        // Batas Divider
         Padding(
           padding:
               const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 5),
@@ -126,6 +140,7 @@ List<Widget> widgets = [
             ],
           ),
         ),
+        // Batas TIX Clone Text
         Padding(
           padding: const EdgeInsets.only(left: 20, top: 10),
           child: Column(
@@ -142,39 +157,45 @@ List<Widget> widgets = [
             ],
           ),
         ),
-        SizedBox(height: 20),
-        Center(
-          child: Container(
-            width: 320,
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: Offset(0, 3), // changes position of shadow
+        // Batas Nonton lebih asik dengan teman - temanmu
+        Padding(
+          padding: const EdgeInsets.only(top: 20, bottom: 30),
+          child: Center(
+            child: Container(
+              width: 320,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/images/carosoul_gimmick_dua.jpeg',
+                  ),
+                  fit: BoxFit.cover,
                 ),
-              ],
-              image: DecorationImage(
-                image: AssetImage(
-                  'assets/images/carosoul_gimmick_dua.jpeg',
-                ),
-                fit: BoxFit.cover,
               ),
             ),
           ),
         ),
-        SizedBox(height: 30),
+        // Batas Iklan Clone
         Divider(
           color: Colors.grey[400],
         ),
-        SizedBox(height: 18),
-        ContentTitle(
-            title: "Film Terbaik",
-            subtitle: "Berikut Film - Film Terbaik Dari Rating Penonton"),
-        SizedBox(height: 15),
+        // Batas Divider
+        Padding(
+          padding: const EdgeInsets.only(top: 18, bottom: 15),
+          child: ContentTitle(
+              title: "Film Terbaik",
+              subtitle: "Berikut Film - Film Terbaik Dari Rating Penonton"),
+        ),
+        // Batas Film Terbaik Text
         SizedBox(
           child: FutureBuilder(
             future: topRatedMovies,
@@ -195,15 +216,21 @@ List<Widget> widgets = [
             },
           ),
         ),
-        SizedBox(height: 20),
-        Divider(
-          color: Colors.grey[400],
+        // Batas Film Terbaik
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Divider(
+            color: Colors.grey[400],
+          ),
         ),
-        SizedBox(height: 20),
-        ContentTitle(
-            title: "Film Akan Tayang",
-            subtitle: "Berikut Film - Film Yang Akan Tayang di TMDB"),
-        SizedBox(height: 25),
+        // Batas Divider
+        Padding(
+          padding: const EdgeInsets.only(top: 20, bottom: 25),
+          child: ContentTitle(
+              title: "Film Akan Tayang",
+              subtitle: "Berikut Film - Film Yang Akan Tayang di TMDB"),
+        ),
+        // Batas Film Akan Tayang Text
         SizedBox(
           child: FutureBuilder(
             future: upcomingMovies,
@@ -224,36 +251,41 @@ List<Widget> widgets = [
             },
           ),
         ),
-        SizedBox(height: 30),
-        Divider(
-          color: Colors.grey[400],
-        ),
-        SizedBox(height: 20),
-        Center(
-          child: Column(
-            children: [
-              Transform.rotate(
-                angle: pi / 5,
-                child: Icon(Icons.local_movies_rounded,
-                    size: 35, color: Colors.yellow[700]),
-              ),
-              SizedBox(height: 15),
-              Text(
-                "Dan... Cut! Yuks Coba Lihat Lagi",
-                style: TextStyle(
-                  fontSize: 12,
-                ),
-              ),
-              Text(
-                "dari paling atas.",
-                style: TextStyle(
-                  fontSize: 12,
-                ),
-              )
-            ],
+        // Batas Film Akan Tayang
+        Padding(
+          padding: const EdgeInsets.only(top: 30, bottom: 20),
+          child: Divider(
+            color: Colors.grey[400],
           ),
         ),
-        SizedBox(height: 40),
+        // Batas Divider
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: Center(
+            child: Column(
+              children: [
+                Transform.rotate(
+                  angle: pi / 5,
+                  child: Icon(Icons.local_movies_rounded,
+                      size: 35, color: Colors.yellow[700]),
+                ),
+                SizedBox(height: 15),
+                Text(
+                  "Dan... Cut! Yuks Coba Lihat Lagi",
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+                Text(
+                  "dari paling atas.",
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ],
     ),
   ),
@@ -277,7 +309,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     trendingMovies = Api().getTrendingMovies();
     topRatedMovies = Api().getTopRatedMovies();
