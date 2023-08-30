@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:movie_app/widget/other_widget.dart';
-import '../widget/bottomNav/bottom_nav_array.dart';
+import '../widget/bottomNav/bottom_nav_value1.dart';
+import '../widget/bottomNav/bottom_nav_value2.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
