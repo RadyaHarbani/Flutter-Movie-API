@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:movie_app/widget/other_widget.dart';
+import 'package:movie_app/widget_component/other_widget.dart';
 import '../../API/fetch_api.dart';
 import '../../model/movie_model.dart';
-import '../../widget/upcoming_slider.dart';
-import '../../widget/top_rated_slider.dart';
-import '../../widget/trending_slider.dart';
+import '../../widget_component/upcoming_slider.dart';
+import '../../widget_component/top_rated_slider.dart';
+import '../../widget_component/trending_slider.dart';
 
 class BottomPage1 extends StatefulWidget {
   const BottomPage1({
@@ -21,7 +21,6 @@ late Future<List<Results>> topRatedMovies;
 late Future<List<Results>> upcomingMovies;
 
 class _BottomPage1State extends State<BottomPage1> {
-
   @override
   void initState() {
     super.initState();
@@ -47,31 +46,31 @@ class _BottomPage1State extends State<BottomPage1> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(right: 10, left: 20),
                       child: Icon(
                         Icons.location_on_sharp,
                         color: Colors.black54,
                         size: 18,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Text(
-                        'Batam, Indonesia',
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 14,
-                        ),
+                    Text(
+                      'Batam, Indonesia',
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 14,
                       ),
                     ),
                   ],
                 ),
                 Row(
                   children: [
-                    Icon(
-                      Icons.keyboard_arrow_down,
-                      color: Colors.black,
-                      size: 18,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                        size: 18,
+                      ),
                     ),
                   ],
                 ),
